@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Core {
+namespace CryptCore {
 
 	void PrintHelloWorld();
 

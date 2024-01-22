@@ -2,10 +2,9 @@
 
 #include <iostream>
 
-namespace Core {
+namespace CryptCore {
 
-	void PrintHelloWorld()
-	{
+	void PrintHelloWorld() {
 		std::cout << "Hello World!\n";
 		std::cin.get();
 	}

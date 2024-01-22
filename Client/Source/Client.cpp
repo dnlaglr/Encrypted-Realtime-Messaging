@@ -4,8 +4,20 @@
 int main() {
 	CryptCore::PrintHelloWorld();
 
-	CryptCore::Network server("127.0.0.1", 8181);
-	server.startListening();
+	CryptCore::Server server(8161);
+	std::thread serverThread([&server] {
+		server.handleConnections();
+	});
+
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	CryptCore::Client client;
+	std::thread clientThread([&client] {
+		client.recieveMessages();
+	});
+
+	serverThread.join();
+	clientThread.join();
 
 	return 0;
 }
